@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<style>
+body {
+  margin: 0;
+}
+
+h2 {
+  text-align: center;
+  color: #ffffff;
+  background-color: #333333;
+  margin: 0;
+  font-weight: normal;
+  padding: 10px;
+}
+.main{
+  margin: 10px;
+  background-color: #efefef;
+  border-style: inset;
+}
+
+section#container {
+  width: 100%;
+  height: 100%;
+  max-width: 960px;
+}
+
+div.card {
+  float: left;
+  width: 33%;
+  text-align: center;
+  line-height: 13;
+}
+.em-text,
+.buttons {
+  margin: 10px auto;
+  text-align: center;
+  width: 100%;
+  display: inline-block;
+}
+.buttons button {
+  background-color: #72c3dc;
+  color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 3px #3495b2;
+  outline: none;
+  border: 0px;
+  width: 100px;
+  margin-bottom: 15px;
+}
+.buttons button:hover {
+  background-color: #3495b2;
+  box-shadow: 0 3px #72c3dc;
+}
+.card1 {
+  background-color: #6f98a8;
+}
+.card2 {
+  background-color: #2a8dac;
+}
+.card3 {
+  background-color: #2e444d;
+}
+.card4 {
+  background-color: #2b8ead;
+}
+.card5 {
+  background-color: #2e444d;
+}
+.card6 {
+  background-color: #bfbfbf;
+}
+.card7 {
+  background-color: #bebebe;
+}
+.card8 {
+  background-color: #6e97a7;
+}
+.card9 {
+  background-color: #2f454e;
+}
+
+@media only screen and (min-width: 1024px) {
+  button {
+    display: block;
+    margin: 20px auto;
+    width: 50%;
+  }
+  .buttons {
+    width: 25%;
+	float: right;
+  }
+  section#container {
+    float: left;
+	width: 75%
+  }
+}
+@media only screen and (orientation: portrait) {
+  div.card {
+    width: 100%;
+    line-height: 4;
+	background-color: #efefef;
+    margin-bottom: 5px;
+  }
+  .card1 {
+    box-shadow: inset 25px 0 #6f98a8;
+  }
+  .card2 {
+    box-shadow: inset 25px 0 #2a8dac;
+  }
+  .card3 {
+    box-shadow: inset 25px 0 #2e444d;
+  }
+  .card4 {
+    box-shadow: inset 25px 0 #2b8ead;
+  }
+  .card5 {
+    box-shadow: inset 25px 0 #2e444d;
+  }
+  .card6 {
+    box-shadow: inset 25px 0 #bfbfbf;
+  }
+  .card7 {
+    box-shadow: inset 25px 0 #bebebe;
+  }
+  .card8 {
+    box-shadow: inset 25px 0 #6e97a7;
+  }
+  .card9 {
+    box-shadow: inset 25px 0 #2f454e;
+  }
+  .main {
+     background-color: #ffffff;
+     border-style: none;
+  }
+}
+
+</style>
+</head>
+<body>
+  <h2>Shuffle and Sort</h2>
+  <section class="main">
+    <section class="buttons">
+      <button id="shuffle">Shuffle</button>
+      <button id="sort">Sort</button>
+    </section>
+    <section id="container">
+      <div class="card card1">1</div>
+      <div class="card card2">2</div>
+      <div class="card card3">3</div>  
+      <div class="card card4">4</div>
+      <div class="card card5">5</div>
+      <div class="card card6">6</div>  
+      <div class="card card7">7</div>
+      <div class="card card8">8</div>
+      <div class="card card9">9</div>
+    </section>
+	<section class="em-text">
+	  <em>Shuffle and Sort by Siva Subbiah R</em>
+	</section>
+  </section>
+<script>
+$container = $("#container");
+$divList = $("div");
+
+$("#shuffle").on("click", function() {
+  //copy and remove all divs
+  $divCopy = $divList.clone(true);
+  $("div").remove();
+
+  while ($divCopy.length > 0) {
+    //chose random index of div array
+    var randomIndex = Math.floor(Math.random() * $divList.length);
+
+    $container.append($divCopy.splice(randomIndex, 1));
+  }
+});
+$("#sort").on("click", function() {
+  $divCopy = $divList.clone(true);
+  $("div").remove();
+    $container.append($divCopy.slice());
+});
+
+</script>
+
+</body>
+</html>
